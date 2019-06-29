@@ -1,0 +1,55 @@
+mat-form-field {
+  width: 100%;
+}
+
+.display {
+  display: flex;
+  justify-content: space-around;
+}
+
+input {
+  padding-left: 10px;
+}
+/*.display form {*/
+/*  float: left;*/
+/*  width: 50%;*/
+/*}*/
+
+/*.display img {*/
+/*  float: right;*/
+/*  width: 50%;*/
+/*}*/
+
+.thumbnail {
+  width: 30vw;
+  height: 25vw;
+}
+
+mat-card-header {
+  text-align: center;
+}
+
+@media all and (max-width: 420px) {
+
+  h3 {
+    font-size: 16pt;
+    padding-top: 10px;
+  }
+
+  .display {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .thumbnail {
+    width: 90vw;
+    height: 60vw;
+    order: 0;
+  }
+
+  form {
+    order: 1;
+  }
+
+}

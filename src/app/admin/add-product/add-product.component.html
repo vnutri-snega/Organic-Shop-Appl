@@ -1,0 +1,63 @@
+<div class="mat-card">
+  <h3 class="mat-card-header">&nbsp;&nbsp;Add product {{product.title}} </h3>
+  <div class="display">
+  <form #form="ngForm" (ngSubmit)="save()">
+
+<!--    <mat-form-field>-->
+<!--      <input matInput type="text"-->
+<!--             name="id" ngModel [(ngModel)]="option"-->
+<!--             placeholder="ID" readonly>-->
+<!--    </mat-form-field>-->
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="product.title"
+             placeholder="&nbsp;&nbsp;Title"
+             name="title" required>
+      <mat-error>
+        Title is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>&nbsp;&nbsp;Category</mat-label>
+      <mat-select [(ngModel)]="product.category" name="category">
+        <mat-option *ngFor="let category of categories$|async" [value]="category.id">
+          {{category.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="product.price"
+             placeholder="&nbsp;&nbsp;Price"
+             name="price" #price price = "ngModel"
+             required appNoNegative>
+      <mat-error *ngIf="price.errors?.required">
+        Price is required
+      </mat-error>
+      <mat-error *ngIf="price.errors?.negative">
+        Price should be a positive number
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="product.imageUrl"
+             placeholder="&nbsp;&nbsp;Image Url"
+             name="imageUrl"
+             required>
+      <mat-error>
+        Image url is required
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-stroked-button type="submit" [disabled]="form.invalid">Add product</button>
+    &nbsp;
+    <button mat-stroked-button type="reset">Reset</button>
+    &nbsp;
+    <button mat-stroked-button (click)="cancel()">Cancel</button>
+
+  </form>
+  <img class="thumbnail" [src]="product.imageUrl">
+  </div>
+</div>
+

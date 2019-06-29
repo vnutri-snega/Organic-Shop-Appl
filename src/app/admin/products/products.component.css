@@ -1,0 +1,30 @@
+td, th {
+  width: 25%;
+}
+
+th {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.icons {
+  width: 6%;
+}
+
+.mat-icon {
+  cursor: pointer;
+  color: black;
+}
+
+.top-line button {
+  float: right;
+  margin-right: 20px;
+}
+
+.top-line mat-form-field {
+  float: left;
+}
+
+.mat-elevation-z8 {
+  clear: both;
+}

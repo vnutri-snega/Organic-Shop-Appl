@@ -1,0 +1,39 @@
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     *ngFor="let link of navLinks"
+     [routerLink]="link.path"
+     routerLinkActive #rla="routerLinkActive"
+     [active]="rla.isActive">
+    {{link.label}}
+  </a>
+
+  <a mat-tab-link
+     *ngIf="!isAuth()"
+     [routerLink]="loginLink.path"
+     routerLinkActive #rla="routerLinkActive"
+     [active]="rla.isActive">
+    {{loginLink.label}}
+  </a>
+
+  <label *ngIf="isAuth()" mat-tab-link [matMenuTriggerFor]="menu">
+    {{getUserName()}}
+    <mat-icon>menu</mat-icon>
+  </label>
+  <mat-menu #menu="matMenu">
+    <div *ngIf="isAdmin()">
+      <a mat-menu-item
+         *ngFor="let item of adminMenuItems"
+        [routerLink]="item.path">
+        {{item.label}}
+      </a>
+    </div>
+    <div *ngIf="!isAdmin()">
+      <a mat-menu-item
+         *ngFor="let item of userMenuItems"
+         [routerLink]="item.path">
+        {{item.label}}
+      </a>
+    </div>
+  </mat-menu>
+</nav>
+<router-outlet></router-outlet>

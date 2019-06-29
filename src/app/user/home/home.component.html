@@ -1,0 +1,31 @@
+<div class="categories-products">
+
+  <mat-selection-list class="categories" (selectionChange)="selection($event)">
+    <mat-list-option *ngFor="let category of categories$|async"
+                     [value]="category.id" checkboxPosition="before">
+      {{category.id}}
+    </mat-list-option>
+
+  </mat-selection-list>
+
+<mat-list class="products-list">
+<mat-grid-list [cols]="colsNum" [rowHeight]="rowHeight">
+  <mat-grid-tile *ngFor="let product of products$|async" class="tile-item">
+    <mat-card >
+      <mat-card-content>
+      <img [src]="product.imageUrl">
+    </mat-card-content>
+      <mat-card-content>
+      <label class="title">{{product.title}}</label>
+    </mat-card-content>
+      <mat-card-content>
+        <label>{{product.price|currency: 'USD'}}</label>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button>Add product to cart</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+</mat-list>
+</div>

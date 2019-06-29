@@ -1,0 +1,28 @@
+[
+  {
+    "bread": {
+      "name": "Bread"
+    }
+  },
+  {
+    "dairy": {
+      "name": "Dairy"
+    }
+  },
+  {
+    "fruits": {
+      "name": "Fruits"
+    }
+  },
+  {
+    "seasonings": {
+      "name": "Seasonings and Spices"
+    }
+  },
+  {
+    "vegetables": {
+      "name": "Vegetables"
+    }
+  }
+]
+

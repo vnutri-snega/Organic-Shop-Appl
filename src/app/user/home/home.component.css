@@ -1,0 +1,35 @@
+.products-list {
+  height: 90vh;
+  overflow-y: auto;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  width: 100%;
+}
+
+img {
+  height: 18vw;
+  width: 20vw;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.categories {
+  display: flex;
+  flex-direction: row;
+}
+
+@media all and (max-width: 600px) {
+  .categories {
+    flex-direction: column;
+  }
+}
