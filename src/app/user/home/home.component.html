@@ -11,19 +11,20 @@
 <mat-list class="products-list">
 <mat-grid-list [cols]="colsNum" [rowHeight]="rowHeight">
   <mat-grid-tile *ngFor="let product of products$|async" class="tile-item">
-    <mat-card >
-      <mat-card-content>
-      <img [src]="product.imageUrl">
-    </mat-card-content>
-      <mat-card-content>
-      <label class="title">{{product.title}}</label>
-    </mat-card-content>
-      <mat-card-content>
-        <label>{{product.price|currency: 'USD'}}</label>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-stroked-button>Add product to cart</button>
-      </mat-card-actions>
+      <mat-card>
+        <mat-card-content class="image">
+          <img [src]="product.imageUrl">
+        </mat-card-content>
+      <div class="content">
+        <mat-card-content>
+          <label class="title">{{product.title}}</label>
+          <br>
+          <label>{{product.price|currency: 'USD'}}</label>
+        </mat-card-content>
+        <mat-card-actions>
+          <app-product-cart class="cart" [product]="product"></app-product-cart>
+        </mat-card-actions>
+      </div>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

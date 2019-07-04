@@ -1,0 +1,8 @@
+<div class="product-cart" *ngIf="quantity != 0; else add_product">
+  <button class="product-button btn btn-outline-secondary" (click)="substractQuantity()"> - </button>
+  <label class="product-label">{{quantity}}</label>
+  <button class="product-button btn btn-outline-secondary" (click)="addQuantity()"> + </button>
+</div>
+<ng-template #add_product>
+  <button class="product-add-button btn btn-outline-secondary" (click)="addProduct()">Add product</button>
+</ng-template>

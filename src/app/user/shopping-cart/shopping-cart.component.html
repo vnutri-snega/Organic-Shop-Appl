@@ -1,3 +1,66 @@
-<p>
-  shopping-cart works!
-</p>
+
+<br>
+<div class="top-line">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+      <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+      <td mat-footer-cell *matFooterCellDef class="footer"> Total </td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+      <td mat-cell *matCellDef="let row"> {{row.price|currency:'USD'}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- Amount Column -->
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+      <td mat-cell *matCellDef="let row">
+        <div class="amount">
+          {{row.quantity}} <span>&nbsp;&nbsp;</span>
+          <button class="product-button btn btn-outline-secondary" (click)="substractQuantity(row)"> - </button>
+          <span>&nbsp;</span>
+          <button class="product-button btn btn-outline-secondary" (click)="addQuantity(row)"> + </button>
+        </div>
+      </td>
+      <td mat-footer-cell *matFooterCellDef class="footer"> {{getTotalAmount()}} </td>
+    </ng-container>
+
+    <!-- Total Price Column -->
+    <ng-container matColumnDef="total_price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Total price </th>
+      <td mat-cell *matCellDef="let row"> {{total_price(row)|currency:'USD'}} </td>
+      <td mat-footer-cell *matFooterCellDef class="footer"> {{getTotalCost() | currency:'USD'}} </td>
+    </ng-container>
+
+    <!-- Remove Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef class="icons"> </th>
+      <td mat-cell *matCellDef="let row" class="icons">
+        <mat-icon (click)="remove(row)">
+          delete
+        </mat-icon>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="" [pageSize]="takeFirstSize()"></mat-paginator>
+</div>
+<button class="btn btn-outline-secondary order" *ngIf="productAmount>0" (click)="createOrder()">Create order</button>
+

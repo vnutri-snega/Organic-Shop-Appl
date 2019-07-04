@@ -37,8 +37,10 @@ export class AuthFirebaseService implements AuthService {
     if (!this.isAuth()) {
       return false;
     }
-    return this.administrators.find(
-      admin => admin.uid === this.user.uid) ? true : false;
+    if (this.administrators) {
+      return this.administrators.find(
+        admin => admin.uid === this.user.uid) ? true : false;
+    }
   }
 
   isAuth(): boolean {

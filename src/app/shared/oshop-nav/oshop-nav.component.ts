@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AuthService} from '../auth-service';
+import {CartService} from '../../user/cart.service';
 
 interface Link {
   label: string;
@@ -12,6 +13,7 @@ interface Link {
   styleUrls: ['./oshop-nav.component.css']
 })
 export class OshopNavComponent implements OnInit {
+
   navLinks: Link[] = [
     {path: 'user/home', label: 'Home'},
     {path: 'user/shopping-cart', label: 'Shopping Cart'}
@@ -31,7 +33,8 @@ export class OshopNavComponent implements OnInit {
     {path: 'logout', label: 'LogOut'}
   ];
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private cartService: CartService) { }
 
   isAuth(): boolean {
     return this.authService.isAuth();
@@ -49,5 +52,7 @@ export class OshopNavComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
+
 }

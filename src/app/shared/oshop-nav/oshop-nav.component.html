@@ -5,6 +5,8 @@
      routerLinkActive #rla="routerLinkActive"
      [active]="rla.isActive">
     {{link.label}}
+    <span>&nbsp;&nbsp;</span>
+    <app-cart-tweet *ngIf="link.label == 'Shopping Cart'"></app-cart-tweet>
   </a>
 
   <a mat-tab-link

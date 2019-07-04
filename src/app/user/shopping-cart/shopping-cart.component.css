@@ -1,0 +1,61 @@
+td, th {
+  width: 25%;
+}
+
+th {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.icons {
+  width: 6%;
+}
+
+.mat-icon {
+  cursor: pointer;
+  color: black;
+}
+
+.top-line button {
+  float: right;
+  margin-right: 20px;
+}
+
+.top-line mat-form-field {
+  float: left;
+}
+
+.mat-elevation-z8 {
+  clear: both;
+}
+
+.product-button {
+  min-width: 6%;
+  text-align: center;
+  border: solid 1px aliceblue;
+}
+
+.amount {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+
+.product-label {
+  padding-top: 1vh;
+  min-width: 15%;
+  text-align: center;
+  vertical-align: center;
+  height: 5vh;
+}
+
+.footer {
+  font-weight: bold;
+  font-size: medium;
+}
+
+.order {
+  margin-top: 10px;
+  width: 100%;
+}

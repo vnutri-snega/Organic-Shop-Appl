@@ -30,13 +30,13 @@ export class HomeComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event?) {
     this.screenWidth = window.innerWidth;
-    if (this.screenWidth < 470) {
+    if (this.screenWidth < 660) {
       this.colsNum = 1;
-      this.rowHeight = '6:5';
-    } else if (this.screenWidth < 900) {
+      this.rowHeight = '2:1';
+    } else if (this.screenWidth < 930) {
       this.colsNum = 2;
-      this.rowHeight = '7:8';
-    } else if (this.screenWidth < 1400) {
+      this.rowHeight = '1:1';
+    } else if (this.screenWidth < 1300) {
       this.colsNum = 3;
       this.rowHeight = '5:6';
     } else {

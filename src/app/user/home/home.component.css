@@ -10,6 +10,12 @@ mat-card {
   align-items: center;
 }
 
+.image {
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
 button {
   width: 100%;
 }
@@ -28,8 +34,65 @@ img {
   flex-direction: row;
 }
 
-@media all and (max-width: 600px) {
+.cart {
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+.content {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 16vw;
+}
+
+@media all and (max-width: 930px) {
+  mat-card {
+    min-width: 300px;
+  }
+
+}
+
+@media all and (max-width: 660px) {
   .categories {
-    flex-direction: column;
+    overflow-x: auto;
+  }
+
+  .image {
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    height: 16vw;
+    width: 18vw;
+  }
+
+  mat-card {
+    min-width: 300px;
+    flex-direction: row;
+  }
+
+  .content {
+    width: 40%;
+  }
+}
+
+@media all and (max-width: 415px){
+  img {
+    height: 22vw;
+    width: 26vw;
+  }
+
+  .content {
+    width: 40%;
+    height: 70%;
+  }
+
+  .cart {
+    height: 30%;
   }
 }
